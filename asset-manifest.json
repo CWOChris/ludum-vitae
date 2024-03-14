@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ludum-vitae/static/css/main.f855e6bc.css",
+    "main.js": "/ludum-vitae/static/js/main.af811c17.js",
+    "static/js/453.22436694.chunk.js": "/ludum-vitae/static/js/453.22436694.chunk.js",
+    "index.html": "/ludum-vitae/index.html",
+    "main.f855e6bc.css.map": "/ludum-vitae/static/css/main.f855e6bc.css.map",
+    "main.af811c17.js.map": "/ludum-vitae/static/js/main.af811c17.js.map",
+    "453.22436694.chunk.js.map": "/ludum-vitae/static/js/453.22436694.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.af811c17.js"
+  ]
+}
