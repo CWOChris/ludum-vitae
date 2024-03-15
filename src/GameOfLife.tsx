@@ -1,6 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Button, Paper } from '@mui/material';
 
+interface GameOfLifeProps {
+  initialGrid?: number[][];
+}
+
 const numRows = 50;
 const numCols = 50;
 
@@ -19,12 +23,14 @@ const generateEmptyGrid = () => {
   return rows;
 };
 
-const GameOfLife: React.FC = () => {
+const GameOfLife: React.FC<GameOfLifeProps> = ({ initialGrid }) => {
   const [grid, setGrid] = useState(() => {
-    return generateEmptyGrid();
+    return initialGrid || generateEmptyGrid();
   });
 
   const [running, setRunning] = useState(false);
+
+  const speed = 250;
 
   const runSimulation = useCallback(() => {
     if (!running) return;
@@ -48,7 +54,7 @@ const GameOfLife: React.FC = () => {
       );
     });
 
-    setTimeout(runSimulation, 100);
+    setTimeout(runSimulation, speed);
   }, [running, grid]);
 
   useEffect(() => {
