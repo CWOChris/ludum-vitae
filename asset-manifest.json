@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ludum-vitae/static/css/main.e6c13ad2.css",
-    "main.js": "/ludum-vitae/static/js/main.c8fcb3b4.js",
+    "main.js": "/ludum-vitae/static/js/main.0beb3fc1.js",
     "static/js/453.f85b4eed.chunk.js": "/ludum-vitae/static/js/453.f85b4eed.chunk.js",
     "index.html": "/ludum-vitae/index.html",
     "main.e6c13ad2.css.map": "/ludum-vitae/static/css/main.e6c13ad2.css.map",
-    "main.c8fcb3b4.js.map": "/ludum-vitae/static/js/main.c8fcb3b4.js.map",
+    "main.0beb3fc1.js.map": "/ludum-vitae/static/js/main.0beb3fc1.js.map",
     "453.f85b4eed.chunk.js.map": "/ludum-vitae/static/js/453.f85b4eed.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.c8fcb3b4.js"
+    "static/js/main.0beb3fc1.js"
   ]
 }
