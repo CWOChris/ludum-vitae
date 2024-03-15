@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import GameOfLife from './GameOfLife'; // Adjust the path as necessary
-import { blankTemplate, template1, template2, template3 } from './Template'; // Adjust the path as necessary
+import { blankTemplate, template1, template2, template3, template4, template5, template6, template7 } from './Template'; // Adjust the path as necessary
 
 // A utility function to select the appropriate template
 const getTemplate = (templateId: string | undefined) => {
@@ -12,6 +12,14 @@ const getTemplate = (templateId: string | undefined) => {
       return template2;
     case '3':
       return template3;
+    case '4':
+      return template4;
+    case '5':
+      return template5;
+    case '6':
+      return template6;
+    case '7':
+      return template7;
     default:
       return blankTemplate;
   }
