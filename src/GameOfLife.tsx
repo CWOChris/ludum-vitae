@@ -32,54 +32,60 @@ const GameOfLife: React.FC<GameOfLifeProps> = ({ initialGrid }) => {
   const speed = 250; // ms between generations
 
   const runSimulation = useCallback(() => {
-    if (!running) return;
+    setGrid((g) => {
+      return g.map((row, i) =>
+        row.map((cell, k) => {
+          let neighbors = 0;
+          operations.forEach(([x, y]) => {
+            const newI = i + x;
+            const newK = k + y;
+            if (newI >= 0 && newI < numRows && newK >= 0 && newK < numCols) {
+              neighbors += g[newI][newK];
+            }
+          });
 
-    setGrid(g => g.map((row, i) =>
-      row.map((cell, k) => {
-        let neighbors = 0;
-        operations.forEach(([x, y]) => {
-          const newI = i + x;
-          const newK = k + y;
-          if (newI >= 0 && newI < numRows && newK >= 0 && newK < numCols) {
-            neighbors += g[newI][newK];
-          }
-        });
+          if (neighbors < 2 || neighbors > 3) return 0;
+          if (cell === 0 && neighbors === 3) return 1;
+          return cell;
+        })
+      );
+    });
 
-        if (neighbors < 2 || neighbors > 3) return 0;
-        if (cell === 0 && neighbors === 3) return 1;
-        return cell;
-      })
-    ));
-  }, [running]); // Removed `grid` from dependencies
+    if (running) {
+      setTimeout(runSimulation, speed);
+    }
+  }, [running, speed]); // Adjusted dependencies
 
   useEffect(() => {
-    let timeoutId;
     if (running) {
-      timeoutId = setTimeout(runSimulation, speed);
+      const timeoutId = setTimeout(runSimulation, speed);
+      return () => clearTimeout(timeoutId);
     }
-    return () => clearTimeout(timeoutId);
   }, [running, runSimulation, speed]);
 
   return (
     <div style={{ margin: '10px' }}>
-      <Button variant="contained" color="primary" onClick={() => setRunning(r => !r)}>
+      <Button variant="contained" color="primary" onClick={() => setRunning((r) => !r)}>
         {running ? 'Stop' : 'Start'}
       </Button>
       <div style={{ display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px)` }}>
         {grid.map((rows, i) =>
           rows.map((col, k) => (
-            <Paper key={`${i}-${k}`} onClick={() => {
-              const newGrid = JSON.parse(JSON.stringify(grid)); // Consider a more performant deep copy method or direct manipulation with caution
-              newGrid[i][k] = grid[i][k] ? 0 : 1;
-              setGrid(newGrid);
-            }}
-            style={{
-              width: 20,
-              height: 20,
-              backgroundColor: grid[i][k] ? '#000' : undefined,
-              border: 'solid 1px black',
-              cursor: 'pointer',
-            }} />
+            <Paper
+              key={`${i}-${k}`}
+              onClick={() => {
+                const newGrid = JSON.parse(JSON.stringify(grid)); // Deep copy
+                newGrid[i][k] = grid[i][k] ? 0 : 1;
+                setGrid(newGrid);
+              }}
+              style={{
+                width: 20,
+                height: 20,
+                backgroundColor: grid[i][k] ? '#000' : undefined,
+                border: 'solid 1px black',
+                cursor: 'pointer',
+              }}
+            />
           ))
         )}
       </div>
