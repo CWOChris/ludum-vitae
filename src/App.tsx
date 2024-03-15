@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GameOfLife from "./GameOfLife";
 import HomePage from "./HomePage";
 import { blankTemplate, template1, template2, template3 } from "./Template";
+import GameOfLifeWrapper from "./GameOfLifeWrapper";
 
 // A utility function or a similar approach to select the appropriate template
 const getTemplate = (templateId) => {
@@ -26,13 +27,13 @@ const GameOfLifeWrapper = ({ templateId }) => {
 
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/GameOfLife/:templateId" element={({ match }) => <GameOfLifeWrapper templateId={match.params.templateId} />} />
-            </Routes>
-        </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/GameOfLife/:templateId" element={<GameOfLifeWrapper />} />
+        </Routes>
+      </Router>
     );
-};
+  };
 
 export default App;
