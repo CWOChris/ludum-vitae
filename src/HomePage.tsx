@@ -12,6 +12,8 @@ const HomePage: React.FC = () => {
     { id: 6, title: 'Pulsar', description: 'A pattern that is not very common.', image: `${process.env.PUBLIC_URL}/assets/pulsar.png`, link: '/GameOfLife/5' },
     { id: 7, title: 'Pentadecathlon', description: 'A pattern that is not very common.', image: `${process.env.PUBLIC_URL}/assets/pentadecathlon.png`, link: '/GameOfLife/6' },
     { id: 8, title: 'Gosper Glider Gun', description: 'A pattern that is not very common.', image: `${process.env.PUBLIC_URL}/assets/gosper.png`, link: '/GameOfLife/7' },
+    { id: 9, title: '4-8-12 Diamond', description: 'A pattern that is not very common.', image: `${process.env.PUBLIC_URL}/assets/diamond.png`, link: '/GameOfLife/8' },
+    { id: 10, title: '4-8-12-16 Diamond', description: 'A pattern that is not very common.', image: `${process.env.PUBLIC_URL}/assets/diamond2.png`, link: '/GameOfLife/9' },
   ];
 
   return (

@@ -115,3 +115,71 @@ const pattern = [
 pattern.forEach(([x, y]) => {
   template7[x][y] = 1;
 });
+
+export const template8 = generateEmptyGrid();
+// This is a 4-8-12 Diamond
+const diamondRow = 25;
+const diamondCol = 25;
+
+const createRow = (row: number, length: number) => {
+  const halfLength = Math.floor(length / 2);
+  for (let i = -halfLength; i < halfLength; i++) {
+    template8[row][diamondCol + i] = 1;
+  }
+};
+
+createRow(diamondRow - 4, 4);
+createRow(diamondRow - 2, 8);
+createRow(diamondRow, 12);
+createRow(diamondRow + 2, 8);
+createRow(diamondRow + 4, 4);
+
+export const template9 = generateEmptyGrid();
+// This is a 4-8-12-16 Diamond
+const diamondRow2 = 25;
+const diamondCol2 = 25;
+
+const createRow2 = (row: number, length: number) => {
+  const halfLength = Math.floor(length / 2);
+  for (let i = -halfLength; i < halfLength; i++) {
+    template9[row][diamondCol2 + i] = 1;
+  }
+};
+
+createRow2(diamondRow2 - 6, 4);
+createRow2(diamondRow2 - 4, 8);
+createRow2(diamondRow2 - 2, 12);
+createRow2(diamondRow2, 16);
+createRow2(diamondRow2 + 2, 12);
+createRow2(diamondRow2 + 4, 8);
+createRow2(diamondRow2 + 6, 4);
+
+export const template10 = generateEmptyGrid();
+// This is the 101 Pattern
+const template10Pattern = [
+[0,	0,	0,	0,	1,	1,	0,	0,	0,	0,	0,	0,	1,	1,	0,	0,	0,	0],
+[0,	0,	0,	1,	0,	1,	0,	0,	0,	0,	0,	0,	1,	0,	1,	0,	0,	0],
+[0,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0],
+[1,	1,	0,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,	1,	1],
+[1,	1,	0,	1,	0,	1,	0,	0,	1,	1,	0,	0,	1,	0,	1,	0,	1,	1],
+[0,	0,	0,	1,	0,	1,	0,	1,	0,	0,	1,	0,	1,	0,	1,	0,	0,	0],
+[0,	0,	0,	1,	0,	1,	0,	1,	0,	0,	1,	0,	1,	0,	1,	0,	0,	0],
+[1,	1,	0,	1,	0,	1,	0,	0,	1,	1,	0,	0,	1,	0,	1,	0,	1,	1],
+[1,	1,	0,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,	1,	1],
+[0,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0],
+[0,	0,	0,	1,	0,	1,	0,	0,	0,	0,	0,	0,	1,	0,	1,	0,	0,	0],
+[0,	0,	0,	0,	1,	1,	0,	0,	0,	0,	0,	0,	1,	1,	0,	0,	0,	0],
+];
+
+const startRow10 = 10;
+const startCol10 = 10;
+
+template10Pattern.forEach((row, rIndex) => {
+  row.forEach((cell, cIndex) => {
+    const rowPosition = startRow10 + rIndex;
+    const colPosition = startCol10 + cIndex;
+    if (rowPosition < numRows && colPosition < numCols) {
+      template10[rowPosition][colPosition] = cell;
+    }
+  });
+});
