@@ -1,39 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import GameOfLife from "./GameOfLife";
 import HomePage from "./HomePage";
-import { blankTemplate, template1, template2, template3 } from "./Template";
-import GameOfLifeWrapper from "./GameOfLifeWrapper";
+import GameOfLifeWrapper from "./GameOfLifeWrapper"; // Update the import path as necessary
 
-// A utility function or a similar approach to select the appropriate template
-const getTemplate = (templateId) => {
-    switch(templateId) {
-        case "1":
-            return template1;
-        case "2":
-            return template2;
-        case "3":
-            return template3;
-        default:
-            return blankTemplate;
-    }
+const App: React.FC = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/GameOfLife/:templateId" element={<GameOfLifeWrapper />} />
+      </Routes>
+    </Router>
+  );
 };
-
-// A component to wrap GameOfLife and pass the selected template
-const GameOfLifeWrapper = ({ templateId }) => {
-    const initialGrid = getTemplate(templateId);
-    return <GameOfLife initialGrid={initialGrid} />;
-};
-
-const App = () => {
-    return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/GameOfLife/:templateId" element={<GameOfLifeWrapper />} />
-        </Routes>
-      </Router>
-    );
-  };
 
 export default App;
