@@ -183,3 +183,31 @@ template10Pattern.forEach((row, rIndex) => {
     }
   });
 });
+
+export const template11 = generateEmptyGrid();
+// This is a spaceship pattern
+const template11Pattern = [
+[1,	1,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	1,	1],
+[1,	1,	0,	0,	0,	1,	1,	0,	0,	1,	0,	0,	1,	0,	0,	1,	1,	0,	0,	0,	1,	1],
+[0,	0,	0,	0,	0,	1,	1,	0,	0,	1,	0,	0,	1,	0,	0,	1,	1,	0,	0,	0,	0,	0],
+[0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0],
+[0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0],
+[0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0],
+[0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0],
+[0,	0,	0,	0,	0,	1,	1,	0,	0,	1,	0,	0,	1,	0,	0,	1,	1,	0,	0,	0,	0,	0],
+[1,	1,	0,	0,	0,	1,	1,	0,	0,	1,	0,	0,	1,	0,	0,	1,	1,	0,	0,	0,	1,	1],
+[1,	1,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	1,	0,	0,	0,	0,	0,	0,	0,	1,	1],
+];
+
+const startRow11 = 2;
+const startCol11 = 2;
+
+template11Pattern.forEach((row, rIndex) => {
+  row.forEach((cell, cIndex) => {
+    const rowPosition = startRow11 + rIndex;
+    const colPosition = startCol11 + cIndex;
+    if (rowPosition < numRows && colPosition < numCols) {
+      template11[rowPosition][colPosition] = cell;
+    }
+  });
+});
